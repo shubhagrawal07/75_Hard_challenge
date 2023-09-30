@@ -1,16 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Problem statement:
-// Given an array arr of size n containing non-negative integers,
-// the task is to divide it into two sets S1 and S2 such that the absolute
-// difference between their sums is minimum and find the minimum difference
+/*
+Problem statement:
+Given an array arr of size n containing non-negative integers,
+the task is to divide it into two sets S1 and S2 such that the absolute
+difference between their sums is minimum and find the minimum difference
 
-// Topics:
-// DP, 0-1 Knapsack
+Topics:
+DP, 0-1 Knapsack
 
-// Time complexity: O(N2);
-// space complexity: O(N2);
+Time complexity: O(N2);
+space complexity: O(N2);
+
+Test case: n = 4, arr = {1,6,11,5}
+output: 1
+eg: {1,6,5} , {11}
+
+*/
 
 int minDifference(int arr[], int n)  { 
     

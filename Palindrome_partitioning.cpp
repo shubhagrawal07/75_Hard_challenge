@@ -1,23 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Problem statement:
-// Given a string str, a partitioning of the string is a palindrome partitioning
-// if every sub-string of the partition is a palindrome.
-// Determine the fewest cuts needed for palindrome partitioning of the given string.
+/*
+Problem statement:
+Given a string str, a partitioning of the string is a palindrome partitioning
+if every sub-string of the partition is a palindrome.
+Determine the fewest cuts needed for palindrome partitioning of the given string.
 
-// Topics: DP, recursion, MCM
+Topics: DP, recursion, MCM
 
-// Time complexity: O(N2)
-// Space complexity: O(N2)
+Time complexity: O(N2)
+Space complexity: O(N2)
 
-// Test case: "ababbbabbababa"
-// output: 3
-// eg: "a", "babbbab", "b", "ababa".
+Test case: "ababbbabbababa"
+output: 3
+eg: "a", "babbbab", "b", "ababa".
+*/
 
-
+// declaring DP globally
 int dp[501][501];
-
+    
+    // helper fuction to check if string is palindrome or not
     int isPal(string s,int i,int j){
         while(i<=j){
             if(s[i]!=s[j]) return 0;
