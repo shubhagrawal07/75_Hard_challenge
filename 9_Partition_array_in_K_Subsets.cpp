@@ -27,19 +27,33 @@ Output:
 */
 
 bool solve(int curr,int sum,int k,int a[],bool flag[],int n){
+    //  base cases
         if(k==0) return true;
         if(curr>sum) return false;
+
+        // if a subset with required sum is found, look for other subsets.
         if(curr==sum) return solve(0,sum,k-1,a,flag,n);
         
+        // looking for subsets
         for(int i=0;i<n;i++){
+
+            // checking if element is already taken or not
             if(!flag[i]){
+
+                // taking the element
                 flag[i]=true;
                 curr+=a[i];
+
+                // if taking the element leads to a valid partitioning, return true
                 if(solve(curr,sum,k,a,flag,n)) return true;
-                else curr-=a[i];
+
+                // backtracking
+                curr-=a[i];
                 flag[i]=false;
             }
         }
+
+        // if no valid partition is found, return false
         return false;
     }
   
@@ -49,6 +63,7 @@ bool solve(int curr,int sum,int k,int a[],bool flag[],int n){
          int sum=0;
          for(int i=0;i<n;i++) sum+=a[i];
          
+         // if sum is not a multiple of k, it cannot be devided into k subsets
          if(sum%k!=0) return false;
          
          sum=sum/k;
